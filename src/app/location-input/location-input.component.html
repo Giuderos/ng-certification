@@ -1,0 +1,14 @@
+<h4>Template for main page:</h4>
+<div class="container-fluid">
+<div class="well">
+  <h2>Enter a zipcode:</h2>
+  <input class="form-control" [(ngModel)]="location" placeholder="Zipcode" type="text" id="addLocation">
+  <br>
+  <button class="btn btn-primary" id="addLocationBtn" (click)="addLocation()">
+    Add location
+  </button>
+</div>
+<div >
+<app-location-detail [location]="location" [index]="i" *ngFor="let location of locationArray; index as i" (onRemove)="removeLocation($event)"></app-location-detail>
+</div>
+</div>

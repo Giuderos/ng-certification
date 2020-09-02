@@ -1,0 +1,26 @@
+<h4>Template for 5-day forecast page:</h4>
+<div class="container-fluid">
+  <div class="panel panel-default" *ngIf="isLoaded">
+    <div class="panel-heading">
+      <h3 class="panel-title">5-day forecast for {{forecast[0].name}}</h3>
+
+    </div>
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let item of forecast; index as i">
+        {{forecast[i].date | date:'EEEE MMM dd'}}:
+        {{forecast[i].currentCondition}}
+        - Min: {{forecast[i].minTemp}}
+        - Max: {{forecast[i].maxTemp}}
+        <div [ngSwitch]="forecast[i].currentCondition">
+        <img class="icon" *ngSwitchCase="'Clear'" src="https://www.angulartraining.com/images/weather/sun.png">
+        <img class="icon" *ngSwitchCase="'Rain'" src="https://www.angulartraining.com/images/weather/rain.png">
+        <img class="icon" *ngSwitchCase="'Thunderstorm'" src="https://www.angulartraining.com/images/weather/rain.png">
+        <img class="icon" *ngSwitchCase="'Drizzle'" src="https://www.angulartraining.com/images/weather/rain.png">
+        <img class="icon" *ngSwitchCase="'Snow'" src="https://www.angulartraining.com/images/weather/snow.png">
+        <img class="icon" *ngSwitchDefault src="https://www.angulartraining.com/images/weather/clouds.png">
+  </div>
+      </li>
+    </ul>
+  </div>
+  <button class="btn btn-success" tabindex="0" id="mainPageBtn" routerLink="/">&lt; Back to main page</button>
+</div>
